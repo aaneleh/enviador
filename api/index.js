@@ -10,7 +10,6 @@ app.use(cors())
 
 app.post('/', function(req, res){
     const body = req.body;
-    let respose;
 
     sgMail.setApiKey(body.apiKey); 
     const msg = {
@@ -25,4 +24,6 @@ app.post('/', function(req, res){
 
 })
 
-app.listen(1337, () => console.log("Rodando"))
+/* app.listen(1337, () => console.log("Rodando")) */
+
+module.exports = app;
