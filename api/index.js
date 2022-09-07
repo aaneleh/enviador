@@ -24,6 +24,6 @@ app.post('/', function(req, res){
 
 })
 
-/* app.listen(1337, () => console.log("Rodando")) */
+app.listen(5050, () => console.log("Rodando na porta 5050"));
 
 module.exports = app;
