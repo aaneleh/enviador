@@ -8,23 +8,15 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-let status = false;
-
-console.log('gg');
+let request = null;
 
 app.get('/', function(req, res){
-    
-    if(status){
-        res.send('nice');
-    } else {
-        res.send('not nice');
-    }
+    res.send('Mande seu request para http://localhost:5050');
 })
 
 app.post('/', function(req, res){
-    status = true;
-
     const body = req.body;
+    request = body;
 
     sgMail.setApiKey(body.apiKey); 
     const msg = {
@@ -39,6 +31,4 @@ app.post('/', function(req, res){
 
 })
 
-app.listen(5050, () => console.log("Rodando na porta 5050"));
-
-module.exports = app;
+app.listen(5050, () => console.log("Rodando em http://localhost:5050"));
