@@ -9,14 +9,18 @@ app.use(express.json());
 app.use(cors())
 
 let status = false;
-//
+
+console.log('gg');
+
 app.get('/', function(req, res){
+    
     if(status){
         res.send('nice');
     } else {
         res.send('not nice');
     }
 })
+
 app.post('/', function(req, res){
     status = true;
 
