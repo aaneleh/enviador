@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors())
 
 let status = false;
-
+//
 app.get('/', function(req, res){
     if(status){
         res.send('nice');
