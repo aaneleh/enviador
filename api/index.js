@@ -8,7 +8,19 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
+let status = false;
+
+app.get('/', function(req, res){
+    if(status){
+        res.send('nice');
+    } else {
+        res.send('not nice');
+    }
+
+})
 app.post('/', function(req, res){
+    status = true;
+
     const body = req.body;
 
     sgMail.setApiKey(body.apiKey); 
