@@ -9,7 +9,7 @@ app.use(express.json());
 app.use(cors())
 
 app.get('/', function(req, res){
-    res.send('Mande seu request para http://localhost:5050');
+    res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
 })
 
 app.post('/', function(req, res){
