@@ -16,7 +16,6 @@ app.get('/', function(req, res){
     } else {
         res.send('not nice');
     }
-
 })
 app.post('/', function(req, res){
     status = true;
