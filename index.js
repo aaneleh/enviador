@@ -8,21 +8,12 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-let request = null;
-
-app.get('/api', (req, res) => {
-    res.setHeader('Content-Type', 'text/html');
-    res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
-    res.end(`Hello! Send requests to ??`);
-});
-
-/* app.get('/', function(req, res){
+app.get('/', function(req, res){
     res.send('Mande seu request para http://localhost:5050');
-}) */
+})
 
 app.post('/', function(req, res){
     const body = req.body;
-    request = body;
 
     sgMail.setApiKey(body.apiKey); 
     const msg = {
@@ -37,6 +28,8 @@ app.post('/', function(req, res){
 
 })
 
-//app.listen(5050, () => console.log("Rodando em http://localhost:5050"));
+app.listen(5000, () => {
+    console.log("Rodando na porta 5000")
+});
 
 module.exports = app;
