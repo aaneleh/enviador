@@ -2,7 +2,7 @@
 const { application, response } = require('express');
 const express = require('express');
 const cors = require('cors');
-const { readFile, readFileSync } = require('fs');
+const { readFile } = require('fs');
 const sgMail = require('@sendgrid/mail');
 
 //inicialização
@@ -13,8 +13,8 @@ app.use(cors())
 //rotas
 app.get('/', function(req, res){
     
-    const html = readFileSync('intro.html', 'utf8');
-    res.send(html)
+    const html = readFileSync('./intro.html', 'utf8');
+    res.end(html)
     
 /*    
     res.send(html);
