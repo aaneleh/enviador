@@ -1,5 +1,4 @@
 const { application } = require('express');
-const { readFile, readFileSync } = require('fs');
 const express = require('express');
 const cors = require('cors');
 const sgMail = require('@sendgrid/mail');
@@ -9,14 +8,8 @@ const app = express();
 app.use(express.json());
 app.use(cors())
 
-app.get('/', async(req, res) => {
-        //res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
-
-    res.send(
-        await readFile('./index.html', 'utf8')
-
-    )
-
+app.get('/', function(req, res){
+    res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
 })
 
 app.post('/', function(req, res){
