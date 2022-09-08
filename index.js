@@ -1,15 +1,24 @@
-const { application } = require('express');
+//dependencias
+const { application, response } = require('express');
 const express = require('express');
 const cors = require('cors');
+const { readFile } = require('fs');
 const sgMail = require('@sendgrid/mail');
 
+//inicialização
 const app = express();
-
 app.use(express.json());
 app.use(cors())
 
+//rotas
 app.get('/', function(req, res){
-    res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
+    //res.send(html);
+    //res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
+    readFile('intro.html', 'utf8', (err, html) => {
+        if(err) res.status(500).send('Fora do ar :(');
+        
+        res.send(html);
+    })
 })
 
 app.post('/', function(req, res){
