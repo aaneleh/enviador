@@ -14,7 +14,7 @@ app.use(cors())
 app.get('/', function(req, res){
     
     const html = readFileSync('intro.html', 'utf8');
-    res.end(html)
+    res.send(html)
     
 /*    
     res.send(html);
