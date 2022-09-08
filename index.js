@@ -12,19 +12,18 @@ app.use(cors())
 
 //rotas
 app.get('/', function(req, res){
-    
-    const html = readFileSync('./intro.html', 'utf8');
-    res.send(html);
-    
-/*    
-    res.send(html);
+
     res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
-    readFile('intro.html', 'utf8', (err, html) => {
+
+/*  const html = readFileSync('./intro.html', 'utf8');
+    res.send(html); */
+    
+/*  readFile('intro.html', 'utf8', (err, html) => {
         if(err) res.status(500).send('Fora do ar :(');
         
         res.send(html);
-    })
-*/
+}) */
+
 })
 
 app.post('/', function(req, res){
