@@ -2,7 +2,7 @@
 const { application, response } = require('express');
 const express = require('express');
 const cors = require('cors');
-const { readFile } = require('fs');
+const { readFile, readFileSync } = require('fs');
 const sgMail = require('@sendgrid/mail');
 
 //inicialização
