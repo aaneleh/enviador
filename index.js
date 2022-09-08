@@ -2,7 +2,7 @@
 const { application, response } = require('express');
 const express = require('express');
 const cors = require('cors');
-const { readFile } = require('fs');
+const { readFile, readFileSync } = require('fs');
 const sgMail = require('@sendgrid/mail');
 
 //inicialização
@@ -12,13 +12,19 @@ app.use(cors())
 
 //rotas
 app.get('/', function(req, res){
-    //res.send(html);
-    //res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
+    
+    const html = readFileSync('intro.html', 'utf8');
+    res.end(html)
+    
+/*    
+    res.send(html);
+    res.send('Mande seu request para <span style="text-decoration: underline">https://enviador.vercel.app/</span>');
     readFile('intro.html', 'utf8', (err, html) => {
         if(err) res.status(500).send('Fora do ar :(');
         
         res.send(html);
     })
+*/
 })
 
 app.post('/', function(req, res){
